@@ -20,7 +20,7 @@ class TestClass(unittest.TestCase):
         print('opening youtube ...')
         self.dr = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 
-    def test0(self):
+    def test1(self):
         print("wait for opening")
         sleep(2)
 
@@ -59,7 +59,7 @@ class TestClass(unittest.TestCase):
 
         print('slide left ...')
         self.dr.swipe(930, 1500, 100, 150, 300)
-        sleep(2)
+        sleep(0.5)
 
         print('click account ...')
         self.dr.find_element_by_accessibility_id("帳戶").click()
@@ -82,7 +82,14 @@ class TestClass(unittest.TestCase):
         sleep(2)
 
         print('click subscribe ...')
-        self.dr.find_element_by_accessibility_id("訂閱內容").click()
+        try :
+            self.dr.find_element_by_accessibility_id("訂閱內容").click()
+        except :
+            print('oh ... it\'s look like it have news')
+            try :
+                self.dr.find_element_by_accessibility_id("訂閱內容：有新內容").click()
+            except :
+                print('okay, there\'s nothing news, it\'s will fail a moment later')
         sleep(1)   
 
         print('menu ...')
@@ -101,7 +108,7 @@ class TestClass(unittest.TestCase):
         self.dr.find_element_by_android_uiautomator('new UiSelector().text("登出")').click()
         sleep(1)
 
-    def test1(self):
+    def test0(self):
         print("wait for opening")
         sleep(2)
 
@@ -115,11 +122,24 @@ class TestClass(unittest.TestCase):
 
         print('click a random video ...')
         self.dr.tap([(530,1000)] ,100)
-        sleep(3)   
+        sleep(8)   
+
+        #print('click video')
+        #self.dr.tap([(500,350)] ,100)
+        #sleep(0.5)    
+
+        #t = self.dr.find_element_by_android_uiautomator('new UiSelector().resourceId("com.google.android.youtube:id/app_promotion_card")')
+        #if not t.isEmpty():
+        try :
+            self.dr.find_element_by_android_uiautomator('new UiSelector().text("略過廣告")').click()
+            print('skip the ad !!')
+            sleep(5)
+        except :
+            pass
 
         print('click video')
         self.dr.tap([(500,350)] ,100)
-        sleep(0.5)    
+        sleep(0.5) 
 
         print('click option')
         self.dr.find_element_by_accessibility_id("更多選項").click()
