@@ -6,8 +6,8 @@
 2. appium-python-client (cmd打 ==pip install Appium-Python-Client==)
 3. 安裝python unittest (cmd打 ==pip install pytest==)
 4. node.js
-5. appium (cmd打 ==npm install appium==)
-6. appium-doctor (cmd打 ==npm install appium-doctor==)
+5. appium (cmd打 ==npm install appium -g==)
+6. appium-doctor (cmd打 ==npm install appium-doctor -g==)
 7. 安裝java sdk (有裝過就跳過)
 8. Android Studio (裝Android SDK和AVD Manager，android studio的比較好用)
 
