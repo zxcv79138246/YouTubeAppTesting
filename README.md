@@ -1,6 +1,6 @@
 # YouTubeAppTesting
 
-#Appium install
+# Appium install
 
 1. python (我用3.6)
 2. appium-python-client (cmd打 ==pip install Appium-Python-Client==)
